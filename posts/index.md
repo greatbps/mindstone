@@ -1,5 +1,4 @@
-![creative-725811_640.jpg?type=w1200](http://post.phinf.naver.net/MjAxNzAxMTBfMTE2/MDAxNDg0MDMwNjU5NzIz.M1h980Fw83jorrxFFVY4lj_k27J4tk3Y36H8ttCategg.UCbOSMWc5ouXeV5Y2Yy5jzh-btDE8LdnD3KVxevDvFIg.JPEG/creative-725811_640.jpg?type=w1200)
-
+![[Pasted image 20221121173707.png]]
 
 언어라는 한 가지 요소만 바꿔도 생각과 감정이 바뀔 것이다. 이 변화가 쌓여서 이전과는 다른 행동과 결과를 낳게 된다.
 
@@ -55,15 +54,16 @@
 
 같은 의미를 가진 말인데도 전혀 반대의 의미로 해석될 수 있다. 마치 다음 그림과 같이 말이다.
 
-![4.jpg?type=w1200](http://post.phinf.naver.net/MjAxNzAxMTBfMjA1/MDAxNDg0MDMwNDcwOTA0.CFq5PchMl50RgfVdopFoEbcYEIgDKuoZJI5u6QGxFSMg.RmCYpcxEAbGPuHbPVKvRqfbhQrKdBKuw54jxBxYQiqUg.JPEG/4.jpg?type=w1200)
+![[Pasted image 20221121173803.png]]
 
 위의그림이나타내는영어단어는무엇인가? ‘GOOD’인가,‘ EVIL’인가?
 
 생각을 바꾸는 실험
 
-![5.JPG?type=w1200](http://post.phinf.naver.net/MjAxNzAxMTBfNDgg/MDAxNDg0MDMwNDc1ODk2.k3LsVXGtdRok83MsLNAquxWt9ow8Mp4Kw8ORw7q5vXwg.68yiUh8KlEoerlSU-8kvQHytF7GHnwoBFjMis-WBw5wg.JPEG/5.JPG?type=w1200)
 
-![%EF%BF%BD%EA%B9%AE%E5%AA%9B%EA%B3%B8%EC%](http://post.phinf.naver.net/MjAxNzAxMTBfMTUy/MDAxNDg0MDI5OTgwMzE2.AGFB_wzbMpnyn2Z7w-0husuU3qJ-kFVAmI-rE-qT_Ycg.vYDYxRIUSoE0Ma3Ywkpqc-G6lkglWDkGrX2C3AiWBjMg.JPEG/%EF%BF%BD%EA%B9%AE%E5%AA%9B%EA%B3%B8%EC%93%A3%E8%AB%9B%EB%B6%BD%EC%94%80%EF%BF%BD%EB%92%97%EF%BF%BD%EA%B9%AE%E5%AA%9B%EA%B3%B9%EB%AA%B4%E5%90%8F%EF%BF%BD%EF%BF%BD%EB%A3%8A%E7%A1%AB%EF%BF%BD-%EF%BF%BD%EF%BF%BD.jpg?type=w1200)
+![[Pasted image 20221121173830.png]]
+
+![[Pasted image 20221121173856.png]]
 
 **58가지 창의적 실험’으로 천재들의 생각을 배워라!**  
   
