@@ -1,5 +1,6 @@
 ![creative-725811_640.jpg?type=w1200](http://post.phinf.naver.net/MjAxNzAxMTBfMTE2/MDAxNDg0MDMwNjU5NzIz.M1h980Fw83jorrxFFVY4lj_k27J4tk3Y36H8ttCategg.UCbOSMWc5ouXeV5Y2Yy5jzh-btDE8LdnD3KVxevDvFIg.JPEG/creative-725811_640.jpg?type=w1200)
 
+
 언어라는 한 가지 요소만 바꿔도 생각과 감정이 바뀔 것이다. 이 변화가 쌓여서 이전과는 다른 행동과 결과를 낳게 된다.
 
 행동의 삼각형에서 가장 통제하기 쉬운 곳은 바로 언어다. 말하는 패턴을 긍정적으로 만듦으로써
