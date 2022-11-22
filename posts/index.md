@@ -1,3 +1,4 @@
+[[Slides]]
 ### **Obsidian 옵시디언, 비전보드(Vision board) 만들기**
 
 ![](https://blog.kakaocdn.net/dn/cD3WJR/btrxb9E2mtl/yFabkB9JNORiAhJkhRqXBk/img.png)
