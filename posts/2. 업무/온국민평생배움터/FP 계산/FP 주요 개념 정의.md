@@ -11,4 +11,3 @@
 
 
 
-=CONCATENATE(C19,"데이터")
