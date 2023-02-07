@@ -23,3 +23,5 @@
 + 사이트 데이터 기반 분석 모델 평가 툴
 + 3rd Party Moodle plugin을 위한 API 제공
 ![[Pasted image 20230207132918.png]]
+
+### 학습자료 관리체계 구축
