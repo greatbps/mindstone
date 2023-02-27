@@ -7,7 +7,7 @@ PromptInfo:
  tags: communication, email
  version: 0.0.1
 ---
-prompt: 학습분석
+prompt:
 reply to this email positively in professional way. 
 email: 
 {{context}}
