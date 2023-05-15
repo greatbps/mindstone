@@ -1,0 +1,1 @@
+강의 URL: https://lg-cns.udemy.com/organization/home/
