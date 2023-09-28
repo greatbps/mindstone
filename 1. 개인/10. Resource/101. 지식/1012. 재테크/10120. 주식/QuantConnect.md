@@ -252,3 +252,153 @@ SDF 모듈을 사용하지 않을 경우 다음과 같은 가장 기본적인 �
 `def Initialize(self):`백테스팅/실시간 거래가 시작되기 전에 실행됩니다. 여기서는 중요한 변수, 모듈을 설정하고 데이터를 추가하고 표시기를 준비하는 등의 작업을 수행합니다.
 
 또한 **예약된 이벤트를** 사용 하여 `Initialize()`하루 중 특정 시간에 실행되는 코드를 트리거할 수도 있습니다.
+
+![[Pasted image 20230928161735.png]]
+
+#### 날짜 및 현금 설정
+
+여기서 우리는 그것이 가지고 있는 `self.SetStartDate(2018, 4, 1)`것과 `self.SetCash(100000)`방법들을 볼 수 있습니다. 이는 백테스트 시작 날짜와 알고리즘에 할당된 현금을 설정합니다.
+
+`self.SetEndDate()`백테스트의 종료 날짜를 결정하기 위해 추가할 수도 있습니다 . 설정하지 않으면 기본적으로 현재 날짜까지 백테스트가 실행됩니다.
+
+```python
+def Initialize(self):
+    self.SetStartDate(2018, 4, 1)  # Set Start Date
+    self.SetEndDate(2020, 4, 1)  # Set End Date
+    self.SetCash(100000)  # Set Strategy Cash
+```
+
+`SetStartDate()``SetEndDate()`명백한 이유로 실시간 거래 중에는 무시됩니다 .
+
+#### 데이터 추가
+
+또한 메소드 내에 데이터를 추가합니다 `Initialize()`.
+
+이를 수행하는 일반적인 템플릿은 매우 간단합니다.
+
+`self.AddEquity()`주식의 경우 SPY와 같이 향후 사용을 위해 내부적으로 할당할 수 있는 보안 개체를 반환하는 데 사용합니다 .
+
+```python
+self.spy = self.AddEquity("SPY", Resolution.Hour, Market.Oanda)
+```
+
+`Resolution`는 데이터 막대의 기간이며 주식에 대한 기본 옵션은 다음과 같습니다.
+
+- Resolution.Tick
+- Resolution.Second
+- Resolution.Minute
+- Resolution.Hour
+- Resolution.Daily
+
+`Market`여러 시장이 동일한 자산을 추적하고 특정 시장에서 데이터를 가져오려는 경우 매개변수는 데이터를 가져오는 시장을 나타냅니다 . QuantConnect에는 아무것도 지정하지 않을 경우 각 자산에 사용되는 기본 시장이 있습니다.
+
+다음도 있습니다:
+
+- AddForex() --추가외환
+- AddCrypto()
+- AddCfd()
+- AddOption()
+- AddFuture()
+
+모두 매우 유사하게 동작하는 해당 자산 클래스에 대한 방법입니다.
+
+모든 메소드에는 종종 무시될 수 있는 좀 더 특수화된 매개변수가 있으며, 그 중 순열이 너무 많아 이 가이드 전체에서 사용하는 각 메소드를 간결하게 나열할 수 없습니다.
+
+사용 가능한 기능에 대한 전체 개요를 보려면 터미널 오른쪽 패널에서 "API"를 클릭하고 아래와 같이 관련 방법/용어를 검색하세요.
+
+![[Pasted image 20230928162216.png]]
+
+#### 표시기 설정
+
+`Initialize()`또한 RSI 또는 MACD와 같이 의 주요 알고리즘에 사용하려는 지표를 설정했습니다 .
+
+예를 들어 RSI 지표의 경우 되돌아보기 기간, 과매수 및 과매도 수준과 같은 주요 변수를 설정하고 `self`알고리즘의 다양한 방법에서 참조할 수 있도록 설정하는 것을 기억합니다.
+
+```python
+RSI_Period    = 14            # RSI Look back period 
+self.RSI_OB   = 60            # RSI Overbought level
+self.RSI_OS   = 40            # RSI Oversold level
+```
+
+그런 다음 원하는 RSI 조회 기간을 사용하여 SPY에 대한 RSI 표시기 개체(QCALgorithm 클래스에서 상속됨)를 설정합니다.
+
+```python
+self.RSI_Ind_SPY = self.RSI("SPY", RSI_Period)
+```
+
+
+#### 예열 기간 설정
+
+또한 기술 지표, 과거 데이터 배열 등과 같은 구성 요소가 기본 알고리즘이 활성화되기 전에 준비되거나 채워질 수 있도록 "준비" 기간을 설정할 수도 있습니다. 워밍업 기간 동안에는 거래가 실행되지 않습니다.
+
+그렇게 하려면 `SetWarmUp()`아래에 표시된 방법을 사용하십시오.
+
+```python
+self.SetWarmUp(200) # Warm up 200 bars for all subscribed data.
+self.SetWarmUp(timedelta(7)) # Warm up 7 days of data.
+
+# Or perhaps ensure that the RSI indicator has enough data before trading. 
+self.SetWarmUp(RSI_Period)
+```
+
+또한 알고리즘은 부울을 사용하여 `IsWarmingUp`워밍업 기간이 완료되었는지 확인할 수 있습니다.
+
+#### 예정된 이벤트
+
+**알고리즘이 Scheduled Events** 를 통해 데이터 업데이트를 수신하는 시간과 관계없이 하루 중 특정 시간에 실행되도록 코드 블록(메서드/함수)을 예약할 수 있습니다 .
+
+**예약된 이벤트에는** 실행할 함수/메서드와 함께 이벤트가 실행되는 시기를 지정하고 내부로 이동하는 날짜 및 시간 규칙이 필요합니다 `Initialize()`.
+
+이벤트를 예약하는 방법은 입니다 `self.Schedule.On(DateRule, TimeRule, Action)`.
+
+**다음은 DateRules** 및 **TimeRules 의** 몇 가지 예입니다 .
+
+![](https://cdn.shortpixel.ai/spai/q_lossy+w_730+to_webp+ret_img/algotrading101.com/learn/wp-content/uploads/2020/10/scheduled-events-rules.png)
+
+전체 목록을 보려면 [예정된 이벤트](https://www.quantconnect.com/docs/algorithm-reference/scheduled-events) 문서로 이동하여 DateRule 및 TimeRule 문서를 확장하세요.
+
+![](https://cdn.shortpixel.ai/spai/q_lossy+w_730+to_webp+ret_img/algotrading101.com/learn/wp-content/uploads/2020/10/date-and-timerule-small.png)
+
+
+다음은 먼저 매일 실행되도록 설정된 예약된 이벤트의 예이며, 더 구체적으로는 매일 10분마다 실행됩니다. 메서드/함수 self.ExampleFunc를 설정합니다. 이는 우리가 원하는 모든 것이 될 수 있습니다.
+
+```python
+self.Schedule.On(self.DateRules.EveryDay(),  
+                 self.TimeRules.Every(timedelta(minutes=10)), 
+                 self.ExampleFunc)
+```
+
+`Initialize()`요약하면, 방금 배운 여러 기능을 채워넣은 알고리즘 구조는 다음과 같습니다 .
+
+![[Pasted image 20230928162752.png]]
+
+### 온데이터()
+
+![](https://cdn.shortpixel.ai/spai/q_lossy+w_695+to_webp+ret_img/algotrading101.com/learn/wp-content/uploads/2020/10/ondata.png)
+
+`def OnData(self, data):`새로운 데이터가 알고리즘에 전달될 때마다 활성화되므로 에서 요청한 데이터 해상도에 따라 매시간, 매일 또는 매주 등이 될 수 있습니다 `Initialization(self)`.
+
+여기에서 거래 논리를 실행하거나 지표 또는 데이터 프레임을 업데이트할 수 있습니다.
+
+**예약된 이벤트를** 사용하면 데이터 업데이트와 관련되지 않은 정기적인 시간 간격/특정 이벤트에 대한 기능을 활성화할 수도 있습니다 .
+
+또한 해당 시간대에 실행되는 QuantConnect와 같거나 내장된 `OnHour()`다른 기능도 있습니다 . `OnEndOfDay()`가이드가 계속해서 관리가 가능하도록 이러한 기능을 점진적으로 소개할 예정입니다.
+
+#### 백테스팅과 실시간 거래
+
+![](https://cdn.shortpixel.ai/spai/q_lossy+w_673+to_webp+ret_img/algotrading101.com/learn/wp-content/uploads/2020/10/go-live-and-backtest.png)
+
+백테스팅과 실시간 거래를 위한 코드 작성은 똑같습니다. 모두 main.py 패널에 들어갑니다.
+
+백테스트를 수행하려면 최소한 `SetStartDate()`및 `SetCash()`변수가 설정된 상태에서 "백테스트" 버튼을 누르기만 하면 됩니다.
+
+라이브 거래를 시작하려면 "Go Live"를 누른 다음 계정이 있는 중개업체를 선택하고(또는 종이 거래를 선택) 데이터 소스와 배포하려는 거래 노드를 선택해야 합니다.
+
+귀하의 계정에 연결하려면 중개업체에 따라 계정 사용자 이름과 비밀번호 및/또는 API 키가 필요하며, 거래할 계정에 약간의 자금도 필요합니다!
+
+또한 `self.LiveMode()`알고리즘이 라이브인지 확인하는 데 사용할 수 있는 유용한 부울이 있다는 점에 유의하세요. 예를 들어:
+
+```python
+if self.LiveMode:
+      # execute this code only if algorithm is in live trading mode
+```
