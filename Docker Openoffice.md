@@ -7,6 +7,8 @@
 5. Docker compose 설치
  마지막 compose up --> su root 로 변경해서 해줘야 함
 
+
+docker exec -it mariadb-server service mariadb start
  
 
 
