@@ -7,3 +7,11 @@
       ca-certificates \
       curl \
      software-properties-common
+  + curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+
+yum-config-manager  --add-repo \
+ "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
