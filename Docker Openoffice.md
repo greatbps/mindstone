@@ -9,6 +9,14 @@
 
 
 docker exec -it mariadb-server service mariadb start
- 
+
+
+create user 'greatbps'@'%' identified by 'killer99!!';
+
+
+CREATE USER 'greatbps'@'%' IDENTIFIED BY 'killer99!!';
+
+
+grant all privileges on *.* to 'testId1'@'loalhost';
 
 
