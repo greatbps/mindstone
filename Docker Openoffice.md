@@ -72,3 +72,56 @@ $CONFIG = array (
 
 
 
+ersion: '3'
+services:
+  db:
+    container_name: mariadb-server
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=killer99!!
+      - MYSQL_PASSWORD=killer99!!
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=greatbps
+  app:
+    container_name: app-server
+    image: nextcloud:fpm
+    restart: always
+    expose:
+      - '80'
+      - '9000'
+    volumes:
+      - app_data:/var/www/html
+  onlyoffice-document-server:
+    container_name: onlyoffice-document-server
+    image: onlyoffice/documentserver:latest
+    restart: always
+    environment:
+      - JWT_SECRET=secret
+    expose:
+      - '80'
+      - '443'
+    volumes:
+      - document_data:/var/www/onlyoffice/Data
+      - document_log:/var/log/onlyoffice
+  nginx:
+    container_name: nginx-server
+    image: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - app_data:/var/www/html
+volumes:
+  document_data:
+  document_log:
+  app_data:
+  mysql_data:
+
