@@ -157,3 +157,6 @@ nextcloud:fpm
     "storage-driver": "overlay"
 }
 ```
+
+
+docker images -a
