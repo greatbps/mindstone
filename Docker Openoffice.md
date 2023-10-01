@@ -134,6 +134,12 @@ docker volume create --name USB_2TB --opt type=none --opt device=/mnt/USB_2TB/vi
 /var/www/html/data/greatbps/files/USB_2TB
 
 
+
+sudo chown -R www-data:www-data /var/www/html/data/greatbps/files/USB_2TB
+sudo chmod -R 0750 /var/www/html/data/greatbps/files/USB_2TB
+
+
+
 docker run -d -p 8080:8080 -v first-volume-data:/container-path-1 -v second-volume-data:/container-path-2:ro --name web-app web-app:latest
 
 nextcloud:fpm
