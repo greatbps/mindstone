@@ -147,6 +147,12 @@ nextcloud:fpm
 
       - app_data:/var/www/html
       - USB_2TB:/var/www/html/data/USB_2TB
+  - docker cp hostFilePath container_name:containerPath
+  - docker cp -r /mnt/USB_2TB/vin/99.Personnel/01.Vincent app-server:/var/www/html/data/greatbps/files/USB_2TB
+
+
+
+
 
 
 
