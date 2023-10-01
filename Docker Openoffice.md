@@ -131,7 +131,7 @@ volumes:
 docker volume create --name USB_2TB --opt type=none --opt device=/mnt/USB_2TB/vin --opt o=bind
 ```
 /var/www/html/data/USB_2TB
-
+/var/www/html/data/greatbps/files/USB_2TB
 
 
 docker run -d -p 8080:8080 -v first-volume-data:/container-path-1 -v second-volume-data:/container-path-2:ro --name web-app web-app:latest
