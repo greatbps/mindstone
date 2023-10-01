@@ -151,3 +151,9 @@ nextcloud:fpm
   - docker cp -r /mnt/USB_2TB/vin/99.Personnel/01.Vincent app-server:/var/www/html/data/greatbps/files/USB_2TB
 
 
+```json
+{
+    "graph": "/mnt/docker-data",
+    "storage-driver": "overlay"
+}
+```
