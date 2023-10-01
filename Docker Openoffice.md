@@ -125,3 +125,11 @@ volumes:
   app_data:
   mysql_data:
 
+
+
+```
+docker volume create --name USB_2TB --opt type=none --opt device=/mnt/USB_2TB/vin --opt o=bind
+```
+/var/www/html/data/USB_2TB
+
+
