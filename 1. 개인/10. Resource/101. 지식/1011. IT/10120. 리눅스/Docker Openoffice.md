@@ -182,10 +182,11 @@ docker run \
 ```
 
 
+```
+sudo blkid /dev/sdb1 | awk -F'"' '{print $2}'
+```
 
-/dev/sda1 /mnt/USB_2TB  ntfs  defaults,uid=1000,gid=1000,rw 0 0  => 폐기
-UUID=01CEB39DC89C0AB0 /mnt/USB_2TB  ntfs rw,noauto 0 0
 
+UID=**01CEB39DC89C0AB0** /mnt/USB_2TB auto nosuid,nodev,nofail 0 0
 
- LABEL="NFS" UUID="01CEB39DC89C0AB0" TYPE="ntfs" PARTUUID="c10a8299-01"
-sudo dnf install autofs
+sudo systemctl daemon-reload
