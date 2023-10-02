@@ -166,3 +166,8 @@ nextcloud:fpm
 
 
 docker images -a
+
+
+docker stop -t 300 storagenode 
+docker rm storagenode
+docker logs --tail 20 storagenode
