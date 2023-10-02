@@ -139,7 +139,8 @@ docker volume create --name  mysql_data --opt type=none --opt device=/data/docke
 /var/www/html/data/USB_2TB
 /var/www/html/data/greatbps/files/USB_2TB
 
-
+sudo chown -R www-data:www-data  /mnt/USB_2TB/vin/data/docker
+sudo chmod -R 0750 /mnt/USB_2TB/vin/data/docker
 
 sudo chown -R www-data:www-data /var/www/html/data/greatbps/files/USB_2TB
 sudo chmod -R 0750 /var/www/html/data/greatbps/files/USB_2TB
