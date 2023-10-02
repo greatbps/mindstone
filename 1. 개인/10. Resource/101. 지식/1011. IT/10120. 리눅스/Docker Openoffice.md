@@ -171,3 +171,11 @@ docker images -a
 docker stop -t 300 storagenode 
 docker rm storagenode
 docker logs --tail 20 storagenode
+
+
+```
+docker run \
+    -v ./db-data/postgres/:/var/lib/postgresql/data/ \
+    --entrypoint /bin/chown \
+    postgres:15.0 -Rc postgres:postgres /var/lib/postgresql/data
+```
