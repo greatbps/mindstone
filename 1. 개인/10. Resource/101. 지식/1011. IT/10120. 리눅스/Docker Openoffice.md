@@ -180,3 +180,7 @@ docker run \
     --entrypoint /bin/chown \
     postgres:15.0 -Rc postgres:postgres /var/lib/postgresql/data
 ```
+
+
+
+/dev/sda1 /mnt/USB_2TB  ntfs  defaults,uid=1000,gid=1000,rw 0 0
